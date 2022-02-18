@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 import cc from 'classcat';
-import copy from 'clipboard-copy';
 import React from 'react';
 
-export const Popup = (props) => {
-  const { onClose, comment } = props;
+type PropsType = {
+  comment:string
+}
+
+export const Popup = (props: PropsType) => {
+  const { comment } = props;
   const [open, setOpen] = useState(false);
   useEffect(() => {
     if (comment) {
