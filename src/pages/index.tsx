@@ -3,8 +3,6 @@ import Head from 'next/head';
 import {
   SampleBox,
   SampleBoxs,
-  SampleInlineStyles,
-  SampleItem,
   SampleColors,
   SampleFontFamilies,
   SampleFontStyles,
@@ -17,6 +15,7 @@ import { SampleFlexBoxs } from '@comp/parts/sample';
 const Home = () => {
   const [comment, setComment] = useState('');
   const handleCopy = (text) => {
+    console.log('text',text);
     setComment(text);
   };
   const links = LinkData();
