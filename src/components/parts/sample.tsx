@@ -6,8 +6,18 @@ import cc from 'classcat';
 import copy from 'clipboard-copy';
 import * as gtag from '@lib/gtag';
 import React from 'react';
+import {
+  PropsTypeSampleItem,
+  PropsTypeSampleInlineItem,
+  PropsTypeSampleBox,
+  PropsTypeSampleBoxs,
+  PropsTypeSampleFlexBoxs,
+  PropsTypeSampleColors,
+  PropsTypeSampleFontFamilies,
+  PropsTypeSampleFontStyles,
+} from '../../types/SampleTypes/SampleType';
 
-export const SampleItem = (props) => {
+export const SampleItem = (props: PropsTypeSampleItem) => {
   const { className, title, optionStyle, onCopy } = props;
   const handleClick = () => {
     copy(className);
@@ -40,7 +50,8 @@ export const SampleItem = (props) => {
     </>
   );
 };
-export const SampleInlineItem = (props) => {
+
+export const SampleInlineItem = (props: PropsTypeSampleInlineItem) => {
   const { className, title, optionStyle, onCopy } = props;
   const handleClick = () => {
     copy(className);
@@ -70,7 +81,7 @@ export const SampleInlineItem = (props) => {
   );
 };
 
-export const SampleBox = (props) => {
+export const SampleBox = (props: PropsTypeSampleBox) => {
   const { className, dammyStyle, size, onCopy } = props;
   const handleClick = () => {
     copy(className);
@@ -108,7 +119,7 @@ export const SampleBox = (props) => {
   );
 };
 
-export const SampleBoxs = (props) => {
+export const SampleBoxs = (props: PropsTypeSampleBoxs) => {
   const { className, dammyStyle, boxCount, size, onCopy, children } = props;
   const handleClick = useCallback(() => {
     copy(className);
@@ -156,17 +167,10 @@ SampleBoxs.defaultProps = {
   onCopy: () => {},
 };
 
-export const SampleFlexBoxs = (props) => {
-  const {
-    className,
-    dammyStyle,
-    childClasses,
-    boxCount,
-    size,
-    onCopy,
-    children,
-  } = props;
-  const handleClick = (classValue) => {
+export const SampleFlexBoxs = (props: PropsTypeSampleFlexBoxs) => {
+  const { className, dammyStyle, childClasses, size, onCopy, children } = props;
+  const handleClick = (classValue:string) => {
+    console.log('classValue', typeof(classValue));
     copy(classValue);
     const comment = 'コピーしました「' + classValue + '」';
     onCopy(comment);
@@ -303,7 +307,7 @@ export const tw_colors = () => {
   ];
 };
 
-export const SampleColors = (props) => {
+export const SampleColors = (props: PropsTypeSampleColors) => {
   const { onCopy } = props;
   const colors = tw_colors();
   return (
@@ -321,7 +325,7 @@ export const SampleColors = (props) => {
   );
 };
 
-export const SampleFontFamilies = (props) => {
+export const SampleFontFamilies = (props: PropsTypeSampleFontFamilies) => {
   const { onCopy } = props;
   const FontFamilies = ['font-sans', 'font-serif', 'font-mono'];
   return (
@@ -339,7 +343,8 @@ export const SampleFontFamilies = (props) => {
   );
 };
 
-export const SampleFontStyles = (props) => {
+export const SampleFontStyles = (props: PropsTypeSampleFontStyles) => {
+  console.log('props', props);
   const { styleItems, optionStyle, baseStyle, onCopy } = props;
   return (
     <>
@@ -361,7 +366,9 @@ export const SampleFontStyles = (props) => {
   );
 };
 
-export const SampleInlineStyles = (props) => {
+
+export const SampleInlineStyles = (props: PropsTypeSampleFontStyles) => {
+  console.log('InlineStyles', props);
   const { styleItems, optionStyle, baseStyle, onCopy } = props;
   return (
     <>

@@ -15,7 +15,6 @@ import { SampleFlexBoxs } from '@comp/parts/sample';
 const Home = () => {
   const [comment, setComment] = useState('');
   const handleCopy = (text: string) => {
-    console.log('text',text);
     setComment(text);
   };
   const links = LinkData();
