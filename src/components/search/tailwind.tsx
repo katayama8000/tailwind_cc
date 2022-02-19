@@ -4,12 +4,12 @@ import cc from 'classcat';
 import * as gtag from '@lib/gtag';
 import React from 'react';
 
-export const TailwindSearch = (props) => {
+export const TailwindSearch = () => {
   const searchRef = useRef(null);
-  const [check, setCheck] = useState(false);
+  const [check, setCheck] = useState<boolean>(false);
   const handleClick = useCallback(
-    (e) => {
-      const optionKeyword = check
+    () => {
+      const optionKeyword = check === true
         ? 'q=site%3Atailwindcss.com+'
         : 'q=tailwindcss.css+';
       gtag.event({
@@ -25,13 +25,13 @@ export const TailwindSearch = (props) => {
     },
     [searchRef, check]
   );
-  const handleCheckClick = useCallback((e) => {
+  const handleCheckClick = useCallback(() => {
     setCheck((prev) => {
       return !prev;
     });
   }, []);
   const handleBlur = useCallback(
-    (e) => {
+    () => {
       searchRef.current.focus();
     },
     [searchRef]
@@ -62,11 +62,6 @@ export const TailwindSearch = (props) => {
           <div className='flex flex-col space-y-2'>
             <div className='mx-auto'>official only</div>
             <div>
-              {/* <input
-                  type='checkbox'
-                  ref={pageRef}
-                  className='w-12 h-12'
-                ></input> */}
               <div
                 onClick={handleCheckClick}
                 className={cc([

@@ -9,16 +9,14 @@ import {
 } from '@comp/parts/sample';
 import { GetStaticProps } from 'next';
 import { Popup } from '@comp/popup/pop';
-import { LinkData } from '@comp/links/linkData';
 import { SampleFlexBoxs } from '@comp/parts/sample';
 
 const Home = () => {
   const [comment, setComment] = useState('');
   const handleCopy = (text: string) => {
-    console.log('text',text);
     setComment(text);
   };
-  const links = LinkData();
+
   return (
     <div className='container max-w-screen-md mx-auto text-sans'>
       <Head>
